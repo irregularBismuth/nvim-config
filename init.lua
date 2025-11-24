@@ -118,7 +118,7 @@ vim.g.have_nerd_font = nixCats 'have_nerd_font'
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -644,7 +644,23 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       -- NOTE: nixCats: there is help in nixCats for lsps at `:h nixCats.LSPs` and also `:h nixCats.luaUtils`
-      local servers = {}
+      local servers = {
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              procMacro = {
+                enable = true,
+              },
+              cargo = {
+                allFeatures = true,
+              },
+              checkOnSave = {
+                command = 'clippy',
+              },
+            },
+          },
+        },
+      }
       -- servers.clangd = {},
       -- servers.gopls = {},
       -- servers.pyright = {},
@@ -674,7 +690,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
               allFeatures = true,
             },
             checkOnSave = {
-              command = "clippy",
+              command = 'clippy',
             },
           },
         },
