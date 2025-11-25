@@ -667,6 +667,13 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
               },
               diagnostics = {
                 disabled = { 'unresolved-proc-macro' },
+                experimental = {
+                  enable = true,
+                },
+              },
+              check = {
+                command = 'clippy',
+                extraArgs = { '--target-dir', 'target/rust-analyzer' },
               },
               inlayHints = {
                 chainingHints = { enable = true },
