@@ -656,8 +656,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
               },
               cargo = {
                 allFeatures = true,
-                loadOutDirsFromCheck = true,
-                buildScripts = {
+                runBuildScripts = {
                   enable = true,
                 },
               },
