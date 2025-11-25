@@ -118,8 +118,8 @@ vim.g.have_nerd_font = nixCats 'have_nerd_font'
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
+-- vim.opt.relativenumber = true
 
-vim.opt.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
@@ -644,44 +644,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       -- NOTE: nixCats: there is help in nixCats for lsps at `:h nixCats.LSPs` and also `:h nixCats.luaUtils`
-      local servers = {
-        rust_analyzer = {
-          settings = {
-            ['rust-analyzer'] = {
-              procMacro = {
-                enable = true,
-                attributes = {
-                  enable = true,
-                },
-              },
-              cargo = {
-                allFeatures = true,
-                buildScripts = {
-                  enable = true,
-                },
-              },
-              checkOnSave = {
-                enable = true,
-                command = 'clippy',
-                allTargets = true,
-                extraArgs = { '--target-dir', 'target/rust-analyzer' },
-              },
-              diagnostics = {
-                disabled = { 'unresolved-proc-macro' },
-                enable = true,
-                experimental = {
-                  enable = true,
-                },
-              },
-              inlayHints = {
-                chainingHints = { enable = true },
-                parameterHints = { enable = true },
-                typeHints = { enable = true },
-              },
-            },
-          },
-        },
-      }
+      local servers = {}
       -- servers.clangd = {},
       -- servers.gopls = {},
       -- servers.pyright = {},
@@ -704,7 +667,6 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
         servers.rnix = {}
         servers.nil_ls = {}
       end
-      -- NOTE: rust_analyzer config moved above to avoid duplicate (see line 648)
       servers.lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
