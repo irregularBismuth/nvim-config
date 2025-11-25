@@ -657,9 +657,21 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
               cargo = {
                 allFeatures = true,
                 loadOutDirsFromCheck = true,
+                buildScripts = {
+                  enable = true,
+                },
               },
               checkOnSave = {
                 command = 'clippy',
+                allTargets = true,
+              },
+              diagnostics = {
+                disabled = { 'unresolved-proc-macro' },
+              },
+              inlayHints = {
+                chainingHints = { enable = true },
+                parameterHints = { enable = true },
+                typeHints = { enable = true },
               },
             },
           },
