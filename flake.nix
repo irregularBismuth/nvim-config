@@ -24,9 +24,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    # neovim-nightly-overlay = {
-    #   url = "github:nix-community/neovim-nightly-overlay";
-    # };
+    neovim-nightly-overlay = {
+     url = "github:nix-community/neovim-nightly-overlay";
+    };
 
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
@@ -51,7 +51,7 @@
     # will not apply to module imports
     # as that will have your system values
     extra_pkg_config = {
-      # allowUnfree = true;
+      allowUnfree = true;
     };
     # management of the system variable is one of the harder parts of using flakes.
 
@@ -104,6 +104,7 @@
           rust-analyzer
           rustc
           cargo
+          rust-src
         ];
         kickstart-debug = [
           delve
