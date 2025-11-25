@@ -24,9 +24,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
-    neovim-nightly-overlay = {
-     url = "github:nix-community/neovim-nightly-overlay";
-    };
+    #neovim-nightly-overlay = {
+    # url = "github:nix-community/neovim-nightly-overlay";
+    #};
 
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
@@ -101,10 +101,10 @@
           lua-language-server
           nixd
           stylua
-          rust-analyzer
-          rustc
-          cargo
-          rust-src
+          unstable.rust-analyzer
+          unstable.rustc
+          unstable.cargo
+          unstable.rust-src
         ];
         kickstart-debug = [
           delve
