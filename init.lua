@@ -650,9 +650,13 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
             ['rust-analyzer'] = {
               procMacro = {
                 enable = true,
+                attributes = {
+                  enable = true,
+                },
               },
               cargo = {
                 allFeatures = true,
+                loadOutDirsFromCheck = true,
               },
               checkOnSave = {
                 command = 'clippy',
@@ -683,18 +687,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
         servers.rnix = {}
         servers.nil_ls = {}
       end
-      servers.rust_analyzer = {
-        settings = {
-          ['rust-analyzer'] = {
-            cargo = {
-              allFeatures = true,
-            },
-            checkOnSave = {
-              command = 'clippy',
-            },
-          },
-        },
-      }
+      -- NOTE: rust_analyzer config moved above to avoid duplicate (see line 648)
       servers.lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
