@@ -141,6 +141,7 @@
           todo-comments-nvim
           mini-nvim
           nvim-treesitter.withAllGrammars
+          oil-nvim
   #        hlchunk-nvim
           # This is for if you only want some of the grammars
           # (nvim-treesitter.withPlugins (
