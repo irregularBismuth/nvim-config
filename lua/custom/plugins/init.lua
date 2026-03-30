@@ -4,6 +4,25 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'lervag/vimtex',
+    name = 'vimtex',
+    lazy = false,
+    init = function()
+      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_compiler_method = 'latexmk'
+      vim.g.vimtex_compiler_latexmk = {
+        options = {
+          '-pdf',
+          '-interaction=nonstopmode',
+          '-synctex=1',
+        },
+      }
+      -- Let vimtex handle tex filetype (better than treesitter for LaTeX)
+      vim.g.vimtex_syntax_enabled = 1
+    end,
+  },
+
+  {
     'stevearc/oil.nvim',
     -- NOTE: nixCats: nix downloads it with a different file name.
     name = 'oil.nvim',

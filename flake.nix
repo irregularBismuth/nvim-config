@@ -106,6 +106,7 @@
           rustc
           cargo
 
+          texlab
         ];
         kickstart-debug = [
           delve
@@ -142,6 +143,7 @@
           mini-nvim
           nvim-treesitter.withAllGrammars
           oil-nvim
+          vimtex
   #        hlchunk-nvim
           # This is for if you only want some of the grammars
           # (nvim-treesitter.withPlugins (
